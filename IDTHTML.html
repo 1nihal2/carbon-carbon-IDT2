@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Carbon Footprint Calculator</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- ================= Login Screen ================= -->
+<section id="authScreen" class="card auth-card">
+  <h2>Login</h2>
+  <input id="authEmail" type="email" placeholder="Email"><br>
+  <input id="authPassword" type="password" placeholder="Password"><br>
+  <button id="authButton">Login</button>
+  <p id="authStatus"></p>
+  <button id="registerBtn" class="register-btn">Register</button>
+</section>
+
+<!-- ================= Home Screen ================= -->
+<section id="homeScreen" class="card hidden">
+  <h1>Carbon Footprint Calculator with Reduction Tips</h1>
+
+  <!-- Horizontal Portals -->
+  <div class="portal-buttons">
+    <button onclick="showCalculator()">Calculator</button>
+    <button onclick="showHistory()">History</button>
+    <button onclick="showEmissionReminder()">Emission Reminders</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- Info Cards -->
+  <div class="info-cards">
+    <section class="card">
+      <h2>Introduction</h2>
+      <p>Carbon emissions are the release of CO₂ and other greenhouse gases caused by human activities such as electricity usage, transportation, and fuel consumption. These emissions contribute to global warming and climate change.</p>
+    </section>
+
+    <section class="card">
+      <h2>Problem Identification</h2>
+      <ul>
+        <li>Lack of awareness about daily carbon emissions</li>
+        <li>Complex and non-user-friendly calculators</li>
+        <li>No region-specific results</li>
+        <li>Limited guidance to reduce emissions</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Methodology</h2>
+      <p>Data is collected through surveys covering electricity use, travel, fuel, and waste generation. Emission factors are applied to calculate per-person carbon emissions.</p>
+    </section>
+  </div>
+
+  <!-- Media -->
+  <div class="media">
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/EtW2rrLHs08" allowfullscreen></iframe>
+    <img src="https://images.unsplash.com/photo-1595172052651-b049327ed64b?auto=format&fit=crop&w=800&q=60" alt="Pollution">
+    <img src="https://images.unsplash.com/photo-1581091012184-7d6c7f136caf?auto=format&fit=crop&w=800&q=60" alt="Renewable Energy">
+  </div>
+</section>
+
+<!-- ================= Calculator Screen ================= -->
+<section id="calculatorScreen" class="card hidden">
+  <h2>Carbon Emission Calculator</h2>
+
+  <div class="float-input"><label>Monthly Electricity Usage (kWh)</label><input id="electricity" type="number"></div>
+  <div class="float-input"><label>Monthly Travel Distance (km)</label><input id="travel" type="number"></div>
+  <div class="float-input"><label>Cooking Fuel Usage (kg/month)</label><input id="fuel" type="number"></div>
+  <div class="float-input"><label>Waste Generated (kg/month)</label><input id="waste" type="number"></div>
+  <div class="float-input"><label>Other Emissions (kg CO₂)</label><input id="other" type="number"></div>
+  <div class="float-input"><label>Date of Measurement</label><input type="date" id="measurementDate"></div>
+
+  <button onclick="calculate()">Calculate</button>
+
+  <h3 id="result"></h3>
+  <p id="indicator"></p>
+  <div id="suggestions"></div>
+  <button onclick="backHome()">Back to Home</button>
+</section>
+
+<!-- ================= History Screen ================= -->
+<section id="historyScreen" class="card hidden">
+  <h2>Past Emission History</h2>
+  <canvas id="historyChart"></canvas>
+  <button onclick="backHome()">Back to Home</button>
+</section>
+
+<!-- ================= Emission Reminders ================= -->
+<section id="emissionScreen" class="card hidden">
+  <h2>Emission Test Reminders</h2>
+  <div id="vehiclesContainer"></div>
+  <button id="addVehicleBtn">+ Add Vehicle</button>
+  <button onclick="backHome()">Back to Home</button>
+</section>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.hidden { display: none; }
+
+.card {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    max-width: 800px;
+    width: 90%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.auth-card { text-align: center; position: relative; }
+
+h1,h2 {
+    color: #2e8b57;
+}
+
+p, li { font-size: 16px; line-height: 1.5; }
+ul { padding-left: 20px; text-align: left; }
+
+input, button {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 6px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input:focus, button:focus { outline: none; border-color: #2e8b57; }
+
+button { cursor: pointer; background: #2e8b57; color: white; transition: 0.3s ease; }
+button:hover { background: #256b45; transform: translateY(-2px); }
+
+.register-btn { position: static; margin-top: 10px; }
+
+.float-input { margin: 15px 0; display: flex; flex-direction: column; animation: floatIn 0.8s ease; }
+
+#result { font-size: 20px; font-weight: bold; margin-top: 15px; animation: fadeIn 1s ease forwards; }
+#indicator { font-weight: bold; margin-top: 10px; font-size: 18px; }
+.low { color: green; } .average { color: orange; } .high { color: red; }
+#suggestions { margin-top: 10px; font-style: italic; }
+
+.media img, .media iframe { width: 100%; margin: 10px 0; border-radius: 10px; }
+
+canvas { background: #f4f7f8; border-radius: 12px; padding: 10px; }
+
+.vehicleCard { margin: 10px 0; padding: 10px; border-radius: 10px; background: #eef7ef; transition: 0.3s ease; }
+.vehicleCard:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+
+.portal-buttons { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+
+#addVehicleBtn { background: #2e8b57; color: white; margin-top: 10px; }
+
+footer { text-align:center; background:#333; color:white; padding:15px; margin-top:20px; font-size: 12px; }
+
+@keyframes floatIn { 0%{transform:translateY(20px);opacity:0;} 100%{transform:translateY(0);opacity:1;} }
+@keyframes fadeIn { 0%{opacity:0;transform:translateY(-10px);} 100%{opacity:1;transform:translateY(0);} }
